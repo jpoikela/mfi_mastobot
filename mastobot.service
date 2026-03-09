@@ -1,0 +1,34 @@
+[Unit]
+Description=Mielenosoitukset.fi Mastodon bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=mastobot
+Group=mastobot
+WorkingDirectory=/opt/mastobot/current
+Environment="PYTHONUNBUFFERED=1"
+Environment="MASTOBOT_CONFIG=/etc/mastobot/config.yaml"
+ExecStart=/usr/bin/python3 /opt/mastobot/current/run.py
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30s
+KillMode=mixed
+SyslogIdentifier=mastobot
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/mastobot /var/lib/mastobot /etc/mastobot
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

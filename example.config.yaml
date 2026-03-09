@@ -1,0 +1,17 @@
+MONGO_URI: "mongodb://localhost:27017"
+MONGO_DBNAME: "mastobot"
+
+MOSOFI:
+  BASE_URL: https://mielenosoitukset.fi/ 
+  ACCESS_TOKEN:
+  POST_MAX_DAYS: # max days till a demo we are posting
+      60
+  CHECK_INTERVAL: # seconds between each check of api
+    60
+
+MASTODON:
+  BASE_URL: 
+  ACCESS_TOKEN: 
+
+
+LOG_LEVEL: WARN
